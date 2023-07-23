@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Framework">
+<suite name="Framework" parallel="tests" thread-count = "3">
 	<listeners>
 		<listener
 			class-name="learning.framework.utilities.ExtentReporting" />
 	</listeners>		
-	<test name="chrome" verbose="2">
+	<test name="chrome" verbose="2" enabled ="false">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="learning.framework.testCases.Tc_LoginTest_001" />
+			 <class name="learning.framework.testCases.Tc_LoginTest_001" /> 
+			  <class name="learning.framework.testCases.Tc_DDT_002" /> 
+		<class name="learning.framework.testCases.Tc_AddCust_003" />
+		</classes>
+	</test> 
+	<test name="firefox" verbose="2">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			 <class name="learning.framework.testCases.Tc_LoginTest_001" /> 
+			<!--  <class name="learning.framework.testCases.Tc_DDT_002" /> -->
+		<class name="learning.framework.testCases.Tc_AddCust_003" />
 		</classes>
 	</test>
 

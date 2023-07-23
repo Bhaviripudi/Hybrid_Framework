@@ -23,6 +23,10 @@ public class LoginPage {
 	@FindBy(name="btnLogin")
 	WebElement login;
 	
+	@FindBy(xpath="/html/body/div[3]/div/ul/li[15]/a")
+	WebElement logOut;
+	
+	
 	public void setUsrNm(String usrNm) {
 		userName.sendKeys(usrNm);
 	}
@@ -35,5 +39,8 @@ public class LoginPage {
 		login.click();
 	}
 	
+	public void setLogOut() {
+		logOut.click();
+	}
 	
 }

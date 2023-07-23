@@ -26,17 +26,18 @@ public class ExtentReporting extends TestListenerAdapter {
 	public void onTestStart(ITestContext context) {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		String reportName = "Test-report-" + timeStamp + ".html";
-		reporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\test-output/" + reportName);
+		reporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/" + reportName);
 		reporter.loadXMLConfig(System.getProperty("user.dir") + "\\extent-config.xml");
+		reporter.config().setDocumentTitle("Testing Framework");
+		reporter.config().setReportName("Functional Test Report");
+		reporter.config().setTheme(Theme.DARK);
 
 		extent.attachReporter(reporter);
 		extent.setSystemInfo("Host name", "localhost");
 		extent.setSystemInfo("User", "Sulochana");
 		extent.setSystemInfo("Env", "Test");
-
-		reporter.config().setDocumentTitle("Testing Framework");
-		reporter.config().setReportName("Functional Test Report");
-		reporter.config().setTheme(Theme.DARK);
+		
+		System.out.println("test start");
 
 	}
 
